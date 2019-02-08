@@ -1,0 +1,58 @@
+<html>
+<head>
+	<title>Index2</title>
+	<link rel="stylesheet" type="text/css" href="CSS/style1.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script>
+		function myfunc(){
+			var x=document.getElementById("first").value;
+			document.getElementById("test").innerHTML = x;
+			//alert(x);
+		}
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<div class="v100">
+			<h1 style="text-align: center" >MY FIRST HTML PROJECT</h1>
+		</div>
+		<div class="v200p1">
+			<div class="h450p1">
+				<h2 style="text-align: center" >Basic HTML Table</h2>
+				<table style="width:100%">
+				  <tr>
+					<th>Firstname</th>
+					<th>Lastname</th> 
+					<th>Age</th>
+				  </tr>
+				  <tr>
+					<td>Jill</td>
+					<td>Smith</td>
+					<td>50</td>
+				  </tr>
+				  <tr>
+					<td>Eve</td>
+					<td>Jackson</td>
+					<td>94</td>
+				  </tr>
+				  <tr>
+					<td>John</td>
+					<td>Doe</td>
+					<td>80</td>
+				  </tr>
+				</table>
+			</div>
+			<div class="h450p2">
+			<form>
+				First name:<br>
+				<input type="text" name="firstname" id="first" placeholder="Enter your FirstName"><br>
+				Last name:<br>
+				<input type="text" name="lastname" id="last" placeholder="Enter your LastName">
+				<button  onclick="myfunc()">Submit</button>
+			</form>
+			</div>
+		</div>
+	</div>	
+</body>
+</html> 

@@ -1,0 +1,40 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+
+.p{
+	background-color: red;
+}
+
+.r{
+	background-color:gray;
+}
+
+.q{
+	background-color:pink;
+}
+
+.a{
+	background-color:palegreen;
+}
+.b{
+	background-color:  orange;
+}
+.c{
+	background-color: lightyellow;
+}
+.d{
+	background-color:lightseagreen;
+}
+
+.a{
+	background-color:yellow;
+}
+
+@media only screen and (max-width: 768px){
+	body{
+		background-color: red;
+	}
+}

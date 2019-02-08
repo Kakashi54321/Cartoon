@@ -1,0 +1,101 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="CSS/style1.css" />
+    <title>INDEX</title>
+    <script>
+        function myfunc() {
+            var x = document.getElementById("email1").value;
+            document.getElementById("para").innerHTML = x;
+
+        }
+    </script>
+</head>
+<body>
+    <div id="main">
+        <div class="a1">
+            <h1 style="text-align:center">HTML PROJECT</h1>
+        </div>
+        <div>
+            <div class="a21">
+                <table>
+                    <tr>
+                        <th>
+                            NAME
+                        </th>
+                        <th>
+                            PHONE NUMBER
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            ABCD
+                        </td>
+                        <td>
+                            12345
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            EFGH
+                        </td>
+                        <td>
+                            67890
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            IJKL
+                        </td>
+                        <td>
+                            34567
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="a22">
+                <ul>
+                    <li>A1</li>
+                    <li>A2</li>
+                    <li>A3</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <div class="a31">
+                <ol>
+                    <li>A1</li>
+                    <li>A2</li>
+                    <li>A3</li>
+                </ol>
+            </div>
+            <div class="a32">
+                <img src="Image/beats.png" />
+            </div>
+            <div class="a33"><a href="www.google.com"><h1 style="text-align:center">HOME</h1></a></div>
+        </div>
+        <div>
+            <div class="a4"><h1 id="para"></h1></div>
+            <div class="a5"></div>
+        </div>
+        <div>
+            <div class="a6"></div>
+            <div class="a7">
+                <form>
+                    EMAIL ID:
+                    <input type="text" id="email1"/>
+                    <br /><br />
+                    PASSWORD:
+                    <input type="password" />
+                    <br /><br />
+                    GENDER:
+                    <input type="radio" />
+                    <input type="radio" />
+                    <br /><br />
+                    <input type="submit" onclick="myfunc()" />
+                </form>
+            </div>
+        </div>
+        <div class="a1"></div>
+    </div>
+</body>
+</html>

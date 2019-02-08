@@ -1,0 +1,84 @@
+<html>
+<head>
+	<title>Index1</title>
+	<link rel="stylesheet" type="text/css" href="CSS/style.css">
+	<script>
+		function myfunc(){
+			var x=document.getElementById("first").value;
+			document.getElementById("test").innerHTML = "42Gears is a customer focused company and evolution of our products over last few years are a result of this approach. We believe customer satisfaction can be achieved only with great customer service.";
+			//alert(x);
+		}
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<div class="v100">
+			<h1 style="text-align: center" >MY FIRST HTML PROJECT</h1>
+		</div>
+		<div class="v200p1">
+			<div class="h450p1">
+				<h2 style="text-align: center" >Basic HTML Table</h2>
+				<table style="width:100%">
+				  <tr>
+					<th>Firstname</th>
+					<th>Lastname</th> 
+					<th>Age</th>
+				  </tr>
+				  <tr>
+					<td>Jill</td>
+					<td>Smith</td>
+					<td>50</td>
+				  </tr>
+				  <tr>
+					<td>Eve</td>
+					<td>Jackson</td>
+					<td>94</td>
+				  </tr>
+				  <tr>
+					<td>John</td>
+					<td>Doe</td>
+					<td>80</td>
+				  </tr>
+				</table>
+			</div>
+			<div class="h450p2">
+			<form>
+				First name:<br>
+				<input type="text" name="firstname" id="first" placeholder="Enter your FirstName"><br>
+				Last name:<br>
+				<input type="text" name="lastname" id="last" placeholder="Enter your LastName">
+				<button  onclick="myfunc()">Submit</button>
+			</form>
+			</div>
+		</div>
+		<div class="v300p1">
+			<div class="h300p1">
+				<ul style="list-style-type:none;">
+				<li>Coffee</li>
+				<li>Tea</li>
+				<li>Milk</li>
+				</ul>
+			</div>
+			<div class="h300p2">
+				<img src="images/42Gears.png" alt="42 gears logo" />
+			</div>
+			<div class="h300p3">
+				<a href="https://www.42gears.com/">
+				<h1 style="text-align:center">Visit our Page</h1>
+				</a>
+			</div>
+		</div>
+		<div class="v200p2">
+			<div class="h600p1">
+				<p id="test">42GEARS</p>
+			</div>
+			<div class="h300p4"></div>
+		</div>
+		<div class="v300p2">
+			<div class="h200"></div>
+			<div class="h700"></div>
+		</div>
+		<div class="v900"></div>
+	</div>
+</body>
+</html> 	

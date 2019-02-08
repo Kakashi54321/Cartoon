@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#main {
+    margin: 0 auto;
+    width: 900px;
+}
+
+.a1 {
+    height: 100px;
+    width: 900px;
+    background-color: red;
+    float: left;
+}
+
+.a21 {
+    height: 200px;
+    width: 450px;
+    background-color: mediumspringgreen;
+    float: left;
+}
+
+.a22 {
+    height: 200px;
+    width: 450px;
+    background-color: greenyellow;
+    float: left;
+}
+
+.a31 {
+    height: 300px;
+    width: 300px;
+    background-color: blue;
+    float: left;
+}
+
+.a32 {
+    height: 300px;
+    width: 300px;
+    background-color: pink;
+    float: left;
+}
+
+.a33 {
+    height: 300px;
+    width: 300px;
+    background-color: deepskyblue;
+    float: left;
+}
+
+.a4 {
+    height: 200px;
+    width: 600px;
+    background-color: yellow;
+    float: left;
+}
+
+.a5 {
+    height: 200px;
+    width: 300px;
+    background-color: orange;
+    float: left;
+}
+
+.a6 {
+    height: 300px;
+    width: 200px;
+    background-color: purple;
+    float: left;
+}
+
+.a7 {
+    height: 300px;
+    width: 700px;
+    background-color: pink;
+    float: left;
+}
+
+table, td, th {
+    border: 1px solid black;
+}
+
+td {
+    height: 50px;
+    width: 450px;
+}
+
+th {
+    height: 50px;
+    width: 450px;
+}
+
+ul {
+    text-align: center;
+    list-style-type: circle;
+    list-style-position: inside;
+    padding:75px 150px 50px 150px;
+}
+
+ol {
+    text-align: center;
+    list-style-type: upper-alpha;
+    list-style-position: inside;
+    padding-top:100px;
+}
+
+img{
+    height:300px;
+    width:300px;
+}
+
+form{
+    padding:100px 100px 100px 200px;
+}

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SampleDBModelStoreContainer" CdmEntityContainer="SampleDBEntities1">
+    <EntitySetMapping Name="Intern_table">
+      <EntityTypeMapping TypeName="SampleDBModel.Intern_table">
+        <MappingFragment StoreEntitySet="Intern_table">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Interns_name" ColumnName="Interns_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

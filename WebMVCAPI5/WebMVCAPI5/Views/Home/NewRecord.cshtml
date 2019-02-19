@@ -1,0 +1,24 @@
+﻿@model WebMVCAPI5.Models.User
+
+@{
+    ViewBag.Title = "NewRecord";
+}
+
+<h2>NewRecord</h2>
+<h6>@Html.ActionLink("Go Back", "Index", "FormCollection")</h6>
+@using (@Html.BeginForm("InsertData", "Process", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>@Html.Label("ID")</td>
+            <td>:</td>
+            <td>@Html.TextBox("TxtID")</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Name")</td>
+            <td>:</td>
+            <td>@Html.TextBox("Name")</td>
+        </tr>
+        <td><input type="submit" value="Submit" /></td>
+    </table>
+}  

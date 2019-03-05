@@ -1,0 +1,42 @@
+04/02/2019
+
+------------------------------ HTML and CSS ------------------------------
+bootstrap contains 12 field length
+overflow x: hidden (horizontal scrolling avoid)
+class name: (dot extension)
+(# extension): style
+
+
+05/02/2019
+------------------methods and parameters----------------------------------
+1)  Nullable Types:-
+	int i= null -> compile time error
+	Nullable<int>i = null;
+	
+	whenever we dont want to have any default value
+	int? nullint = 10;
+	
+	Null Coalescing Operator = ??
+		int myData = dr.GetIntFromDatabase() ?? 100;
+		
+2) Enum Types:-
+	enum EnmType{				enum EmpType : byte{} 	[by default it is int]
+		Manager = 100,
+		Grunt,
+		Contractor
+	}
+	
+3) Parameters Modifiers:-
+	#Passed by Value
+	OUT-> when we want to use the variable after the evaluation in the function once again
+			value must be initialised inside the function 
+	REF-> when we are trying to use the value at the  time of using it only.
+	
+	
+4) Params:-
+	at the time of declaration just use the values directly and at the time of defining use it(params double[] values)
+5) Optional Parameters:-
+	some additional parameters can be added to the function and its default value must be assigned to it.
+6) Named Parameters:-
+	along with the name of the parameters, we can have values with it 
+--------------------------------------------------------------------------------------------

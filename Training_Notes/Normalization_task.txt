@@ -1,0 +1,54 @@
+18/02/19
+------------------------------------------------------------------------------
+Ques 01:
+	since "contacts" column doesnot have an atomic value, converting it to 3NF
+
+
+	
+STUDENT_TABLE:(#primary_key:- student_id)																LOCATION_TABLE:(#primary_key:-zip_code)
+--------------																							----------------
+--------------																							----------------
+student_id 		student_name 		zip_code		project_id											zip_code		city
+-----------------------------------------------------------------										-------------------------
+1				Vinayaka			003				01													003				Bangalore	
+2				Ganesh				005				03													005				Mangalore	
+3				Irshan				003				01	
+				
+
+PROJECT_TABLE:(#primary_key:-project_id)							CONTACT_TABLE:(#primary_key:-contacts)
+-------------														--------------
+-------------														--------------
+project_id			project_name									contacts		student_id
+--------------------------------									--------------------------
+1					ABC												986765			1
+3					XYZ												357485			1
+																	786412			2
+																	014754			3
+-> 	project_id and zip_code is functionally dependent on student_id therfore we have created another table for zip_code and project_id.
+->	and to remove the 1NF in contacts	column, we have created another table for contacts where student_id is the foreign key referencing student_id table.
+														
+														
+														
+USER_TABLE:	(#primary_key:- User_id)																	Subscription_TABLE:(#primary_key:- Subscription_Id)
+----------																								-------------------
+----------																								-------------------
+User_id			User_name		Subscription_Id			Subscription_Period								Subscription_Id			Subscription_Type
+---------------------------------------------------------------------------								-----------------------------------------
+01				Vinayaka		01						3												01						01
+02				Ganesh			02						6												02						02
+03				Irshan			03						3												03						03
+04				Saurabh			04						12												04						02
+
+->	Subscription_Id is functionally dependent on User_id therfore we have created anothertable for Subscription_Id.
+-> 	Subscription_Id acts as foreign key in the user table.	
+
+
+Ques 02:
+Table 1 was not in 1NF beacause in one row of the "contacts" column contains more than one value.
+
+Ques 03:
+ 1) Atomicity needs to be taken care of.
+ 2)	Consistency must be present in the table.
+ 3)	Isolation in between the tables must be covered at all times.
+ 4)	Durability must be present.
+ 5)Normalization must be taken into consideration(#3NF is the least).

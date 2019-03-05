@@ -1,0 +1,34 @@
+06/02/2019
+-----------------------------------------
+OOPS concept:-
+
+-------------------- C# constructs ---------------------------------------
+-> properties and methods(actions)
+->class doesnot occcupy spaces, object does
+->memory is allocated for class in heap and for object in stack
+->abstract class consist of the common data in general
+
+---------------------ABSTRACTION  v/s  ENCAPSULATION---------------------------------
+1.Abstraction solves the problem at the design level.				1.Encapsulation solves the problem in the implementation level.
+2.Abstraction hides unwanted data and provides relevant data.		2.Encapsulation means hiding the code and data into a single unit to protect the data from the outside world.
+3.Abstraction: Outer layout, used in terms of design.				3.Encapsulation- Inner layout, used in terms of implementation.
+4.Accomplised using classes											4.using interfaces
+
+
+Encapsulation is when a group of related methods, properties, and other members are treated as a single object.
+Inheritance is the ability to receive (“inherit”) methods and properties from an existing class.
+Polymorphism is when each class implements the same methods in varying ways, but you can still have several classes that can be utilized interchangeably.
+Abstraction is the process by which a developer hides everything other than the relevant data about an object in order to simplify and increase efficiency.
+
+
+multiple inheritance can be achieved using inheritance
+garbage collecion is present for removing memory spaces which is better than C
+Abstract class can have both declaration and definition but 
+	Inheritance only has declaration in it.
+-> SEALED class:-
+	inheritance cannot be performned
+-> SINGLETON class:-
+	only one instance can be created
+	no ambiguity arrives in it	
+->
+Public int MyProperty{get; set;} = 4;

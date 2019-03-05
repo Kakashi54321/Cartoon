@@ -1,0 +1,47 @@
+08/02/19
+Publishing of web pages using IIS server and the ppt is present in the mail.
+------------------------------------------------------------------------------
+
+11/02/19
+: ASP.NET - Intro to Web Forms, Web Controls, Master Pages, State Management Techniques
+---------------------------------------------------------------------------------------
+WEB FORMS:-
+	rich web user interface
+	styling,controls,javascript
+	seperation of client and server(runat= "server")
+	state execution (in html it cannot store the web pages, cookies or anything, cannot access data from database)
+	Event-Driven Programming Language(all controls will have events like onload,onclick,onhover)
+	State Management(temporarily store the data of page)- client and server
+	Browser independent
+	
+Features of ASP.NET WEB Forms:-
+	Server Controls
+	Master Pages
+	security
+	Debugging and Error Handling
+	Deployment & Hosting(eg- IIS server)
+	
+State Management Techniques:-
+	1)Client side:-
+		View state(save the entire page with single page application and can be redirected)
+		Hiddden Fields(we can save any data untill it is redirected)
+		Query String(?type=demo)
+		Cookies(Store data for specific period of time)
+	2) Server Side:-
+		Application state(contains all the data that we have provided and can be accessed anywhere from the application)
+							will start when hosting website on IIS server or any server and stop only when website is  stopped.
+		Session state(Eg- login and logout)
+						store and retrieve data of all the pages and use it anytime
+
+Master Page:-
+	Master Page is use to write or design layout of the page one time and when you will inherit the master page to other pages 
+	it will directly show you the layout of the page as it is in master page
+	Imagine you have 20 to 25 web forms than without master page you will have to design all the page layout one by one and 
+	if there is any change in that than you will have to go in all the pages for change
+	but with master page its not the case. if you will make change in master page
+	than it will directly get change in all the pages because all other page inherit master page					
+ 	
+Session :-
+	Session["Name"] = txtName.Text;
+	Session["Name"] in which "Name" is the key of session with the help of it you will able to retrieve and store data in that particular session 
+	txtName.Text is an ASP.Net web control of TextBox which value is been stored in session

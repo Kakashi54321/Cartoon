@@ -1,0 +1,162 @@
+------15/02/19----------
+--------------------------------------------------------------------------------------------------------------
+
+CREATE DATABASE db_session;
+
+====
+
+USE db_session;
+
+====
+
+CREATE TABLE team
+(
+	team_id_team INT NOT NULL,
+	team_name_team VARCHAR(256) NOT NULL,
+	team_lead_team VARCHAR(256) NOT NULL, 
+	last_updated_team DATETIME NOT NULL,
+	CONSTRAINT PK_team_id_team PRIMARY KEY (team_id_team)
+);
+
+====
+
+CREATE TABLE developer
+(
+	developer_id_developer VARCHAR(38) NOT NULL,
+	developer_name_developer VARCHAR(256) NOT NULL,
+	team_id_developer INT DEFAULT NULL,
+	joining_date_developer DATE NOT NULL, 
+	work_place_developer VARCHAR(256) NOT NULL,
+	CONSTRAINT PK_developer_id_developer PRIMARY KEY (developer_id_developer),
+	CONSTRAINT FK_team_id_developer FOREIGN KEY (team_id_developer) REFERENCES team(team_id_team)
+);
+
+====
+
+INSERT INTO team 
+	(team_id_team, team_name_team, team_lead_team, last_updated_team)
+VALUES
+	('1', 'DOT Net', 'Saurabh', '2018-06-21 19:24:30.730'),
+	('2', 'UI', 'Ammeen', '2018-03-09 19:24:30.730'),
+	('3', 'Architect', 'Pranay', '2016-09-17 19:24:30.730'),
+	('5', 'Android', 'Abhin', '2018-02-23 19:24:30.730'),
+	('8', 'Windows', 'Aster', '2017-06-29 19:24:30.730'),
+	('9', 'iOS', 'Balamuralikrishna', '2017-05-28 19:24:30.730'),
+	('11', 'Custom', 'Rahul', '2018-05-28 19:24:30.730');
+
+====
+
+INSERT INTO developer
+	(developer_id_developer, developer_name_developer, team_id_developer, joining_date_developer, work_place_developer)
+VALUES 
+	(NEWID(), 'Pranay', '3', '2009-10-11 19:24:30.730', 'Bangalore'),
+	(NEWID(), 'Saurabh', '9', '2011-11-23 19:24:30.730', 'Bangalore'),
+	(NEWID(), 'Aster', '8', '2011-04-17 19:24:30.730', 'Bangalore'),
+	(NEWID(), 'Ganesh Kiran', '1', '2015-07-14 19:24:30.730', 'Bangalore'),
+	(NEWID(), 'Ammeen', '2', '2015-09-29 19:24:30.730', 'Bangalore'),
+	(NEWID(), 'Harish', '8', '2014-12-03 19:24:30.730', 'Bangalore'),
+	(NEWID(), 'Shashipriya', '5', '2014-12-03 19:24:30.730', 'Bangalore'),
+	(NEWID(), 'Munaswamy', '2', '2015-12-09 19:24:30.730', 'Bangalore'),
+	(NEWID(), 'Balamuralikrishna', '9', '2016-05-09 19:24:30.730', 'Bangalore'),
+	(NEWID(), 'Abhshek Kumar Gupta', '1', '2016-08-01 19:24:30.730', 'Bangalore'),
+	(NEWID(), 'Sandeep S', '1', '2017-07-22 19:24:30.730', 'Bangalore'),
+	(NEWID(), 'Abhin', '5', '2017-07-12 19:24:30.730', 'Bangalore'),
+	(NEWID(), 'Sikandra', '1', '2017-03-20 19:24:30.730', 'Bangalore'),
+	(NEWID(), 'Hetvi', '1', '2018-04-13 19:24:30.730', 'Rajkot'),
+	(NEWID(), 'Divya', '1', '2018-04-27 19:24:30.730', 'Rajkot'),
+	(NEWID(), 'Ankita', '5', '2018-05-19 19:24:30.730', 'Rajkot'),
+	(NEWID(), 'Mahesh', NULL, '2018-06-25 19:24:30.730', 'Chennai');
+
+====
+
+- SQL INSERT command
+	- INSERT a Record:
+		INSERT INTO team 
+			(team_id_team, team_name_team, team_lead_team, last_updated_team)
+		VALUES
+			('1', 'DOT Net', 'Saurabh', '2018-06-21 19:24:30.730');
+			
+		-- In case of NULL, takes NULL if not mentioned in INSERT
+		-- In case of NOT NULL, must required in INSERT
+		-- In case of Default value, Given Default value will be considered if not mentioned in INSERT
+		
+====
+
+- SQL INSERT command
+	- INSERT multiple Records at once:
+		INSERT INTO team 
+			(team_id_team, team_name_team, team_lead_team, last_updated_team)
+		VALUES
+			('1', 'DOT Net', 'Saurabh', '2018-06-21 19:24:30.730'),
+			('2', 'UI', 'Ammeen', '2018-03-09 19:24:30.730'),
+			('3', 'Architect', 'Pranay', '2016-09-17 19:24:30.730'),
+			('5', 'Android', 'Abhin', '2018-02-23 19:24:30.730'),
+			('8', 'Windows', 'Aster', '2017-06-29 19:24:30.730'),
+			('9', 'iOS', 'Balamuralikrishna', '2017-05-28 19:24:30.730'),
+			('11', 'Custom', 'Rahul', '2018-05-28 19:24:30.730');
+			
+====
+
+- SQL UPDATE command
+	- UPDATE table data:
+		UPDATE developer
+		SET joining_date_developer = GETDATE()
+		WHERE developer_name_developer = 'Mahesh';
+		
+====
+
+- SQL UPDATE command:
+	NOTE: An UPDATE can be created from multiple tables, but can affect only one table.
+	[will be covered after JOINs]
+	
+====
+
+- SQL DELETE command
+	- DELETE table data:
+		DELETE FROM developer;
+		SELECT * FROM developer WHERE team_id_developer = '2';
+		
+====
+
+- SQL DELETE command
+	- DELETE Vs TRUNCATE:
+		DELETE FROM developer;
+		TRUNCATE TABLE developer; // Resets Schema
+
+====
+
+- SQL SELECT command:
+	- SELECT * FROM, SELECT <column(s)> FROM, AS (Alias)
+	- TOP 
+	- DISTINCT
+	- WHERE, =, !=, <>, >, >=, <, <=, AND, OR, NOT, BETWEEN, LIKE, IN
+	- AGGREGATE FUNCTIONS : COUNT, MIN, MAX, SUM, AVG
+	- ORDER BY, ASC, DESC 
+	- GROUP BY, HAVING 
+	- INSERT INTO ... SELECT FROM 
+	
+====
+
+- JOINs
+	- INNER JOIN (JOIN)
+	- LEFT JOIN (LEFT OUTER JOIN), RIGHT JOIN (RIGHT OUTER JOIN), FULL JOIN (FULL ORDER JOIN)
+	- CROSS JOIN 
+- UNION
+	- UNION
+	- UNION ALL
+	
+====
+
+- QUERY
+	- Query
+	- Sub/Nested Query
+	- Co-related Query
+	- Querying with NULL Data (IS NULL)
+	- CASE ... WHEN
+	- JOIN Vs Sub Query
+	
+	- ROW_NUMBER, RANK, DENSE_RANK [Ref. Video]
+	-- https://www.youtube.com/watch?v=QFj-hZi8MKk&feature=youtu.be
+	- Use of LEN, CAST, CONVERT [Ref. Book]
+	
+====

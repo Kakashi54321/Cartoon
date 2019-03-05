@@ -1,0 +1,106 @@
+01/02/2019
+
+
+DATA TYPES:-
+	CLR provides two types-> Value(stack)(eg:int) and Reference(Managed Heap)(eg:class obj)(points to same location)
+	test obj1 = new test();						class-> easier to extend and read;
+	Value type-> Simple, Enumeration and Structure
+1) Simple Value Type:-
+	Integer, Floating, Decimal, Boolean, Character
+	* int(System.Int32), short(.Int16), byte(.Byte) and long(.Int64)
+	* float(.Single) and double(.Double)
+	*decimal(.Decimal)
+	*bool(.Boolean)
+	*char(.Char)
+2)Reference Type->
+	Class, String, Delegate, Interface and Array
+	
+Ading element to array:-
+	List<int> numList = new List<int>;
+	numList.Add(1);
+	.count()		.Length()
+DICTIONARY:-
+	Dictionary<string, int>dict1;			dict1["..."]
+
+DELEGATE:-
+	delegate bool delName(...);
+	delName filler1;
+	ReadValues(query, Filler)-> Data return changes;
+
+VARIABLES:-	
+	Datatype identifier; (Case Sensitive)
+	variable in class/Structure is zero by default
+	automatic values: bool(false), Numeric(0), Object(Null), Date(1/1/0001 12:00:00 AM)
+	
+CONSTANTS:-
+	non-primitive variables
+	implicitly static
+	
+
+CONDITIONAL STATEMENT:-
+1)IF/ELSE:-
+2)SWITCH:-
+	
+LOOPS:-
+1)FOR:-
+	for(; ;){}-> Infinite loop
+2)FOREACH:-
+3)WHILE:-
+
+
+
+
+
+
+
+
+
+
+Checked FEATURE:-								System.Collections
+	short automatically converts to INT					System.Collections.Generic
+	
+Implicitly typed variable:-
+	keyword(var) at compile time(static type)       var x="Nilesh";
+
+eg:(LINQ)
+	int[] arr = {1, 2, 3, 4, 5, 6, 7};
+	var res = from x in arr where x<5 select x;	
+	instead of var, we can write IEnumerable<int>
+	
+DYNAMIC:-
+	dynamic sName = Deserialize(xyz)
+	if(null != someName.SerialNumber){}
+
+CODING STANDARDS:-
+	parameterised queries
+	check for null exceptions
+	Reentracy:-
+	function is called at the time when it is executing
+	always use local variables
+	LOCKS
+	never to use exception handing in Developer code
+	MIT and BSD license
+	
+OUT parameters:
+	class outp{
+		public static bool RetMul(out int val1, out int val2)
+		{
+			val1=5;
+			val2=10;
+
+			return true;
+		} 
+	}
+
+	string test1="345";
+	int value=0;
+	bool res3 = Int32.TryParse(test1, out value);
+	if(res3)
+		Console.WL(value);
+
+	string ChangeBack = value.ToString();
+	
+
+	int x,y;
+	bool res4 = outp.RetMul(out x, out y);
+	Console.WriteLine("Values {0} {1}",x,y);

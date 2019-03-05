@@ -1,0 +1,110 @@
+07/02/2019
+https://docs.oracle.com/cd/E17952_01/connector-odbc-en/connector-odbc-examples-programming-net-csharp.html
+--------------------------------------------------
+try-catch block
+converting from regular type to obj ->  BOXING								UN-BOXING
+eg:-
+	int i=5;																int x;									
+	object obj =  i;														x=(int)obj;
+	
+	string s = "xyz"		|	it will give a runtime error;
+	int x;					|	
+	x = (int)s;				|	
+-------------------------------------------------
+Inheritance hierarchy(booklet)
+Type Safety:-
+Non-Generic Collections:-
+	can contains various data types in one array
+	stack, arraylist, queue, list
+	
+->	How to make genenric : just add a datatype to it	
+	stack<object> s1 = new stack<object>();
+	
+->	Dictionary<string, int> dict1 = new Dictionary<string, int>();
+	dict1["somekeyName"]= 4;
+	
+	
+	NILESH-IN07\MSSQLSERVER01
+	
+	
+	using System;
+using System.Text;
+using System.Data.SqlClient;
+
+namespace SqlServerSample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                // Build connection string
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                builder.DataSource = "NILESH-IN07";   // update me
+                builder.UserID = "nil";              // update me
+                builder.Password = "nil@42gears";      // update me
+                builder.InitialCatalog = "master";
+
+                // Connect to SQL
+                Console.Write("Connecting to SQL Server ... ");
+                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                {
+                    connection.Open();
+                    Console.WriteLine("Done.");
+
+                    //Creating a SampleDB
+                    Console.Write("Dropping and creating database 'SampleDB' ... ");
+                    String sql = "DROP DATABASE IF EXISTS [SampleDB]; CREATE DATABASE [SampleDB]";
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        command.ExecuteNonQuery();
+                        Console.WriteLine("Done.");
+                    }
+                    // Create a Table and insert some sample data
+                    Console.Write("Creating sample table with data, press any key to continue...");
+                    Console.ReadKey(true);
+                    StringBuilder sb = new StringBuilder();
+                    sb.Append("USE SampleDB; ");
+                    sb.Append("CREATE TABLE Employees ( ");
+                    sb.Append(" Id INT IDENTITY(1,1) NOT NULL PRIMARY KEY, ");
+                    sb.Append(" Name NVARCHAR(50), ");
+                    sb.Append(" Location NVARCHAR(50) ");
+                    sb.Append("); ");
+                    sb.Append("INSERT INTO Employees (Name, Location) VALUES ");
+                    sb.Append("(N'Akshansh', N'Bihar'), ");
+                    sb.Append("(N'Manoj', N'Karnataka'), ");
+                    sb.Append("(N'Nilesh', N'Assam'); ");
+                    sql = sb.ToString();
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        command.ExecuteNonQuery();
+                        Console.WriteLine("Done.");
+                    }
+                    Console.WriteLine("Reading data from table, press any key to continue...");
+                    Console.ReadKey(true);
+                    sql = "SELECT Id, Name, Location FROM Employees;";
+                    Console.WriteLine("Id\tName\tLocation");
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Console.WriteLine("{0}\t{1}\t{2}", reader.GetInt32(0), reader.GetString(1), reader.GetString(2));
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+
+            Console.WriteLine("All done. Press any key to finish...");
+            Console.ReadKey(true);
+        }
+    }
+}

@@ -1,0 +1,98 @@
+31/01/2019
+
+Defn:-
+	standard-> Common Language Infrastructure(CLI)
+	class library-> Framework Class Library(FCL)
+	software env -> Common Language Runtime(CLR)
+	developing managed software
+	traditional compilation leads to binary executable file
+	managed one will create an assembly containing metadata and intermediate language code(MSIL)-> standard:CIL
+	
+	
+CLR:-
+	an execution engine-> compiled to IL and executed by it
+	memory management(visual basic
+	exceptoin handling(visual basic,c++
+	garbage collection(c++
+	thread management(c++
+	compiled to CIL(Common Intermediate Langaugae  Code)
+	JIT turns CIL code into machine code
+
+CTS:-
+	binary compatibility between language types(CLR) -> built in types are represented as types in FCL(Framework Class Library)(which language ??)
+	defines all data types and programming constructs supported by CLR
+	supports exchange of types and object instances
+
+CLS:-
+	the ability to write code in one language that is consumable by other languages
+	is to set a common standards for each languages
+	CLS-compliant and non-CLS-compliant code
+	
+
+.NET Framework											.NET Core
+1)only for windows and web applications								1)cross-platform for all OS(windows,mac and linux)
+2)Do not have time to learn a new technology.							2)
+Need a stable environment to work in.
+Have nearer release schedules.
+Are already working on an existing app and extending its functionality.
+Already have an existing team with .NET expertise and building production ready software.
+Do not want to deal with continuous upgrades and changes.
+Building Windows client applications using Windows Forms or WPF	 
+3)
+High-performance and scalable system without UI					.NET Core is much faster.
+Docker containers support							Both. But .NET Core is born to live in a container.
+Heavily reply on command line							.NET Core has a better support.
+Cross-platform needs								.NET Core
+Using Microservices								Both but .NET Core is designed to keep in mind today's needs.
+Have existing experienced .NET team						.NET Core has a learning curve.
+
+
+Applications:-
+1)WPF:-
+	Windows Presentation Foundation
+	UI framework for desktop client app
+	uses XAML(Extensible Application Markup Language) to provide models for app
+	layout, data binding, styles
+2)Windows form application:-
+	runs on desktop 
+	collections of controls (labels, textboxes, buttons, etc)
+3)Console Applications
+4)Windows Service applications:-
+	long running executable applications
+	automatically starts when booted
+	make services ideal for use (many persons working on the same)
+	Service Control Manager
+	
+	compiled executable file must be installed on the server before the project can function
+	must create installation components for service applications
+
+
+
+Advantages over JAVA:-
+	can access code written in any .NET compliant language along with the classes inherited
+	generates .dll file(Portable Executable File) containing MSIL code over the bytecode
+	dll file can contain any number of classes (java only one)
+	methods are not virtual by default
+	classes are grouped in namespaces (in packages)
+	namespaces are not related to the directories
+	features like properties and indexes
+	can easily call windows API function and access DOM components 
+
+
+PYTHON:-
+	dynamic compiled language-> fast, easy, 
+	easy to learn
+	get support from community
+
+NODE.JS:- (on what framework it understands)
+	for server side development
+	light weight(less lines of code)
+	featuer rich cross-platform solution
+	repository is bigger than(solution might already be there in the library)
+	
+	reverse-engineering can be done
+	being translated into CPU instr.
+	
+PHP:-
+	Flexibility
+		

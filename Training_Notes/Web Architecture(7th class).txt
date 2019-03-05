@@ -1,0 +1,13 @@
+08/02/2019
+Today's Task: Web Architecture, Client/Server Architecture, Authentication & Authorization, Caching, IIS
+--------------------------------------------------------------------------------------------------------
+
+Front end:- HTML,CSS,JavaScript,nodejs					HTTP and AJAX
+Back end:- C#, Python and JavaScript,ruby				
+
+networking computing model
+
+first is authentication and then the authorization
+
+
+

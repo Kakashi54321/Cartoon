@@ -1,0 +1,51 @@
+19/02/19/02
+---------------------------------------------------------------------------
+Introduction to MongoDB, CRUD Operations, sorting, searching and Projection.
+****************************************************************************
+
+Angular 6
+****************************************************************************
+ES6
+code .     => to open visual studio directly from folder location
+
+SCSS 
+
+
+
+class Employee
+
+--spec = false
+--flat = true
+
+
+
+
+******************************************************************************************
+Browser API(Solutions)(Backend)	{API to controller along with the models and then to the services}	
+PlutoApp 
+HTMLHydra(Front end)-> interacting with databases (working on the Console Page and JS folder )
+
+suremdm to communicate with the devices(information from )
+
+working on PlutoApp:-
+	under dbsetup-> scripts-> DelatScripts-> 
+	
+	under PlutoCode-> interacting with devices
+	
+	under Farm-> ODL HANDLER and ODLIMFILM (goes from front end to back and then to PlutoApp)
+	
+	under DB_Utils-> to get the databases and many overloaded methods are present
+	
+	under Job-> from service to devices (using pluto and calling ODL HANDLER)
+	
+	
+	
+	QA TEAM:-
+	------------------------------------------------------------------------------------------
+	View tickets-> MyOpenTickets-> and then make the changes that are asked by the testing team.
+	
+	ProductRoadMap for SureMDM-> which tracks are assigned to us.
+	
+	
+	after we have implemented on the project we assignee it to peers and after getting approved by the peer and merging to SPRINT branch ....send it to QA
+	

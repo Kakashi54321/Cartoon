@@ -1,0 +1,7 @@
+C:\Users\nilesh\source\repos\DownloadFile\DownloadFile\bin\Debug\DownloadFile.exe.config
+C:\Users\nilesh\source\repos\DownloadFile\DownloadFile\bin\Debug\DownloadFile.exe
+C:\Users\nilesh\source\repos\DownloadFile\DownloadFile\bin\Debug\DownloadFile.pdb
+C:\Users\nilesh\source\repos\DownloadFile\DownloadFile\obj\Debug\DownloadFile.csprojAssemblyReference.cache
+C:\Users\nilesh\source\repos\DownloadFile\DownloadFile\obj\Debug\DownloadFile.csproj.CoreCompileInputs.cache
+C:\Users\nilesh\source\repos\DownloadFile\DownloadFile\obj\Debug\DownloadFile.exe
+C:\Users\nilesh\source\repos\DownloadFile\DownloadFile\obj\Debug\DownloadFile.pdb

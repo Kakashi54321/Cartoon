@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+ {
+	//code
+	int t;
+	cin>>t;
+	
+	while(t--){
+	    int n;
+	    cin>>n;
+	    
+	    int A[n],T[n],ans=0;
+	    
+	    for(int i=0; i<n; i++){
+	        cin>>A[i];
+	        T[i]=A[i];
+	    }
+	    
+	    for(int i=1; i<n; i++){
+	        int max=0;
+	        for(int j=0; j<i; j++){
+	            if(A[j]<A[i] && max<T[j])
+	                max = T[j];
+	        }
+	        T[i] += max;
+	    }
+	    
+	    for(int i=0; i<n; i++){
+	        if(ans < T[i]){
+	            ans = T[i];
+	        }
+	    }
+	    
+	    cout<<ans<<endl;
+	}
+	return 0;
+}

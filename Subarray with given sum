@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+ {
+	//code
+	int t;
+	cin>>t;
+	
+	while(t--){
+	    int n, sum;
+	    cin>>n>>sum;
+	    
+	    int a[n];
+	    for(int i=0; i<n; i++){
+	        cin>>a[i];
+	    }
+	    
+	    int cursum=a[0], start=0, f=0;
+	    
+	    for(int i=1; i<=n; i++){
+	        while(cursum>sum && start<i-1){
+	            cursum = cursum-a[start];
+	            start++;
+	        }
+	        if(cursum == sum){
+	            cout<<start+1<<" "<<i-1+1<<endl;
+	            f=1;
+	            break;
+	        }
+	        if(i<n){
+	            cursum += a[i];
+	        }
+	    }
+	    
+	    if(f==0){
+	        cout<<"-1"<<endl;
+	    }
+	}
+	return 0;
+}

@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+ {
+	//code
+	int t;
+	cin>>t;
+	
+	while(t--){
+	    int n;
+	    cin>>n;
+	    
+	    int a[n];
+	    for(int i=0; i<n; i++){
+	        cin>>a[i];
+	    }
+	    
+	    int max = a[n-1];
+	    vector<int> res;
+	    res.push_back(max);
+	    
+	    for( int i=n-2; i>=0; i--){
+	        if(max <= a[i]){
+	            max = a[i];
+	            res.push_back(max);
+	        }
+	    }
+	    
+	    for(auto i= res.crbegin(); i!= res.crend(); ++i){
+	        cout<<*i<<" ";
+	    }
+	    
+	    cout<<endl;
+	}
+	return 0;
+}

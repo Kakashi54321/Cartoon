@@ -1,0 +1,64 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int merge(long long unsigned int a[], long long unsigned int t[], long long unsigned int low, long long unsigned int high);
+int mergesort(long long unsigned int a[], long long unsigned int t[], long long unsigned int low, long long unsigned int mid, long long unsigned int high);
+
+int merge(long long unsigned int a[], long long unsigned int t[], long long unsigned int low, long long unsigned int high){
+    long long unsigned int mid, c=0;
+    if(low<high){
+        mid = (low+high)/2;
+        c = merge(a, t, low, mid);
+        c += merge(a, t, mid+1, high);
+        c += mergesort(a, t, low, mid+1, high);
+    }
+    return c;
+}
+
+int mergesort(long long unsigned int a[], long long unsigned int t[], long long unsigned int low, long long unsigned int mid, long long unsigned int high){
+    long long unsigned int i=low, j=mid, k=low;
+    long long unsigned int c=0;
+    while((i<=mid-1)&&(j<=high)){
+        if(a[i]<=a[j]){
+            t[k++] = a[i++];
+        }
+        else{
+            t[k++] = a[j++];
+            c += mid-i;
+        }
+    }
+    
+    while(i<=mid-1){
+        t[k++] = a[i++];
+    }
+    
+    while(j<=high){
+        t[k++] = a[j++];
+    }
+    
+    for(long long unsigned int l=low; l<=high; l++){
+        a[l] = t[l];
+    }
+    return c;
+}
+
+int main()
+ {
+	//code
+	int t;
+	cin>>t;
+	
+	while(t--){
+	    long long unsigned int n;
+	    cin>>n;
+	    
+	    long long unsigned int a[n];
+	    for(int i=0; i<n; i++){
+	        cin>>a[i];
+	    }
+	    long long unsigned int t[n];
+	    long long unsigned int ans = merge(a, t, 0, n-1);
+	    cout<<ans<<endl;
+	}
+	return 0;
+}

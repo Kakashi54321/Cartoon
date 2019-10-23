@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+#define ll long long 
+using namespace std;
+int main()
+ {
+	//code
+	int t;
+	cin>>t;
+	
+	while(t--){
+	    int m,n; cin>>m>>n;
+int i,j;
+double x[m],y[n];
+for(i=0;i<m;i++) 
+{
+	        cin>>x[i];
+	        if(x[i]!=1)
+	        x[i]=(x[i]/log(x[i]));
+	        else
+	        x[i]=INT_MAX;
+}
+for(j=0;j<n;j++) 
+{
+	        cin>>y[j];
+	        if(y[j]!=1)
+	        y[j]=(y[j]/log(y[j]));
+	        else y[j]=INT_MAX;
+}	   
+//sort(x.begin(),x.end());
+sort(y,y+n);
+ll int ans=0;
+for(i=0;i<m;i++)
+{
+	 ll int id=upper_bound(y,y+n,x[i])-y;
+	 ans+=(n-id);
+}
+	    cout<<ans<<endl;
+	    
+	}
+	return 0;
+}

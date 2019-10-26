@@ -1,0 +1,36 @@
+Node* merge( Node* a, Node* b ) 
+{ 
+    // If first list is empty, the second list is result 
+    if (a == NULL) 
+        return b; 
+  
+    // If second list is empty, the second list is result 
+    if (b == NULL) 
+        return a; 
+  
+    // Compare the data members of head nodes of both lists 
+    // and put the smaller one in result 
+    Node* result; 
+    if (a->data < b->data) 
+    { 
+        result = a; 
+        result->bottom = merge( a->bottom, b ); 
+    } 
+    else
+    { 
+        result = b; 
+        result->bottom = merge( a, b->bottom ); 
+    } 
+  
+    return result; 
+} 
+    
+Node *flatten(Node *root)
+{
+   // Your code here
+   if (root == NULL || root->next == NULL) 
+        return root; 
+  
+    // Merge this list with the list on right side 
+    return merge( root, flatten(root->next) ); 
+}

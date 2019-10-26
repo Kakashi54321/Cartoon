@@ -1,0 +1,26 @@
+void removeTheLoop(Node *head)
+{
+     //Your code here
+     Node*slow=head;
+     Node*fast=head;
+     slow=slow->next;
+     fast=fast->next->next;
+     
+     while(slow && fast && fast->next){
+         if(slow == fast){
+             break;
+         }
+         slow=slow->next;
+         fast=fast->next->next;
+         
+     }
+     
+     if(slow==fast){
+     slow = head;
+     while(slow->next != fast->next){
+         slow=slow->next;
+         fast=fast->next;
+     }
+     fast->next=NULL;
+     }
+}

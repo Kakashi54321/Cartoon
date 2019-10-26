@@ -1,0 +1,27 @@
+struct Node* pairwise_swap_util(struct Node* head, int k){
+    struct Node* prev = NULL;
+    struct Node* next = NULL;
+    struct Node* cur = head;
+    int count=0;
+    
+    while(cur!=NULL && count<k){
+        next=cur->next;
+        cur->next=prev;
+        prev=cur;
+        cur=next;
+        count++;
+    }
+    
+    if(next!=NULL){
+        head->next = pairwise_swap_util(next,k);
+    }
+    
+    return prev;
+}
+
+struct Node* pairwise_swap(struct Node* head)
+{
+    // your code here
+    int k=2;
+    return pairwise_swap_util(head, k);
+}

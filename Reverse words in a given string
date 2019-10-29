@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+ {
+	//code
+	int t;
+	cin>>t;
+	
+	while(t--){
+	    string s;
+	    cin>>s;
+	    
+	    int first=0, last,i;
+	    for(i=0;i<s.length();i++)
+    	{
+        	    if(s[i]=='.')
+            	    {
+            	        last=i;
+            	        reverse(begin(s)+first,begin(s)+last);
+            	        first=last+1;
+            	    }
+        	    
+    	}
+    	reverse(begin(s)+first,begin(s)+i);
+    	reverse(begin(s),end(s));
+	    
+	    cout<<s<<endl;
+	}
+	return 0;
+}

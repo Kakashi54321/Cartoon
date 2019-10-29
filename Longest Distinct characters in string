@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+ {
+	//code
+	int t;
+	cin>>t;
+	
+	while(t--){
+	    string str;
+	    cin>>str;
+	    int count=0, size=0;
+	    unordered_map<char,int>m;
+	    for(int i=0;i<str.length();i++){
+	        if(m.find(str[i]) == m.end()){
+	            m[str[i]]=i;
+	            count++;
+	        }else{
+	            auto it=m.find(str[i]);
+	            i=it->second;
+	            m.clear();
+	            size=max(size,count);
+	            count=0;
+	        }
+	    }
+	    cout<<max(count,size)<<endl;
+	
+	}
+	return 0;
+}

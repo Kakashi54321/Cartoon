@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+bool ispalindrome(string s)
+{
+    for(int i=0,j=s.size()-1;i<j;i++,j--)
+        if(s[i]!=s[j])
+            return false;
+    return true;
+}
+
+string findl(string s)
+{
+    string ans;
+    for(int k=1;k<=s.size();k++)
+    {
+        string t;
+        for(int i=0;i<k;i++)
+            t+=s[i];
+            
+        if(ispalindrome(t)==true)
+        {
+            ans = t;
+            continue;
+        }
+        for(int i=k;i<s.size();i++)
+        {
+            reverse(t.begin(),t.end());
+            t.pop_back();
+            reverse(t.begin(),t.end());
+            t+=s[i];
+            if(ispalindrome(t)==true)
+            {   
+                ans = t;
+                break;
+            }
+        }
+        if(ans.size()==k)
+            continue;
+    }
+    return ans;
+}
+
+int main()
+{
+    int t;
+    cin>>t;
+    for(int i=0;i<t;i++)
+    {
+        string s;
+        cin>>s;
+        s = findl(s);
+        cout<<s<<endl;
+    }
+	return 0;
+}

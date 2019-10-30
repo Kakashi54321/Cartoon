@@ -1,0 +1,62 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int T;
+	cin>>T;
+	while(T--)
+	{
+	    string s;
+	    cin>>s;
+	    stack<char> sk;
+	    int flag = 0;
+	    for(int i=0;i<s.size();i++)
+	    {
+	        
+	        if(s[i]=='('||s[i]=='{'||s[i]=='[')
+	            sk.push(s[i]);
+	        else if(s[i]==')'||s[i]==']'||s[i]=='}')
+	        {   if(sk.empty())
+	                {   
+	                    flag = 1;
+	                    break;
+	                }
+	            char a = sk.top();
+	            sk.pop();
+	            
+	            switch(s[i])
+	            {
+	                case')':
+	                        if(a=='{'||a=='[')
+	                        {
+	                            flag = 1;
+	                            break;
+	                        }
+	                        break;
+	               case'}':
+	                        if(a=='('||a=='[')
+	                        {
+	                            flag = 1;
+	                            break;
+	                        }
+	                        break;
+	               case']':
+	                        if(a=='{'||a=='(')
+	                        {
+	                            flag = 1;
+	                            break;
+	                        }
+	                        break;
+	                        
+	  	            }
+	        }
+	    }
+	    if(flag==0&&sk.empty())
+	        cout<<"balanced\n";
+	   else 
+	        cout<<"not balanced\n";
+	        
+	    
+	}
+	return 0;
+}

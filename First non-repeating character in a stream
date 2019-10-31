@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+ {
+	//code
+	int t;
+	cin>>t;
+	
+	while(t--){
+	int n;
+        cin>>n;
+        int b=0,e=0;
+        vector<int> um(26,0);
+        vector<char> arr(n);
+        while(e<n){
+            cin>>arr[e];
+            um[arr[e]-'a']++;
+            
+            while(b<e && um[arr[b]-'a'] > 1)
+                b++;
+            if(um[arr[b]-'a']>1)
+                cout<<"-1 ";
+            else
+                cout<<arr[b]<<" ";
+            e++;
+        }
+        cout<<endl;
+	}
+	return 0;
+}

@@ -1,0 +1,15 @@
+map<int,int> mp;
+void preorder(Node *root,int haxis){
+    if(root==NULL) return;
+    mp[haxis] = root->data;
+    preorder(root->left,haxis-1);
+    preorder(root->right,haxis+1);
+}
+void bottomView(Node *root){
+     mp.clear();
+     preorder(root,0);
+     map<int,int>::iterator it;
+     for(it= mp.begin();it!=mp.end();it++){
+         cout<<it->second<<" ";
+     }
+}

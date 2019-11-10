@@ -1,0 +1,44 @@
+void connect(Node *p)
+{
+   // Your Code Here
+  queue< Node * > qq;
+   qq.push(p);
+   while(!qq.empty()){
+       int sz = qq.size();
+       while(sz > 0){
+           Node* node = qq.front();
+           qq.pop();
+           //cout<<"here "<<node->data<<" "<<qq.size()<<endl;
+           if(sz > 1){
+               node->nextRight = qq.front();
+           }else{
+               node->nextRight = NULL;
+           }
+           if(node->left != NULL)
+           qq.push(node->left);
+           if(node->right != NULL)
+           qq.push(node->right);
+           sz--;
+       }
+   }
+}
+
+
+
+
+
+void printSpecial(Node *root)
+{
+   if (root == NULL)
+     return;
+   Node *node = root;
+   while (node != NULL)
+   {
+      cout<<node->data<<" ";
+      node = node->nextRight;
+   }
+   if (root->left)
+     printSpecial(root->left);
+   else
+     printSpecial(root->right);
+}

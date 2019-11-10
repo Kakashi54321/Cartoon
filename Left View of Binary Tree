@@ -1,0 +1,32 @@
+/*This is a function problem.You only need to complete the function given below*/
+/* A binary tree node
+struct Node
+{
+    int data;
+    struct Node* left;
+    struct Node* right;
+    
+    Node(int x){
+        data = x;
+        left = right = NULL;
+    }
+};
+ */
+// A wrapper over leftViewUtil()
+void leftView(Node *root)
+{
+   // Your code here
+   queue<Node*> q;
+   q.push(root);
+   
+   while(!q.empty()){
+       int n = q.size();
+       cout<< q.front()->data<<" "; 
+       for(int i=0; i<n; i++){
+           Node* temp = q.front();
+           if(temp->left) q.push(temp->left);
+           if(temp->right) q.push(temp->right);
+           q.pop();
+       }
+   }
+}

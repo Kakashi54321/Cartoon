@@ -1,0 +1,29 @@
+/*This is a function problem.You only need to complete the function given below*/
+/* Tree node structure  used in the program
+struct Node
+{
+    int data;
+    struct Node* left;
+    struct Node* right;
+    
+    Node(int x){
+        data = x;
+        left = right = NULL;
+    }
+};*/
+/* Computes the height of binary tree with given root.  */
+int height(Node* node)
+{
+   // Your code here
+   if(node==NULL)   return 0;
+   else{
+       int lD = height(node->left);
+       int rD = height(node->right);
+       
+       if(lD > rD){
+           return lD+1;
+       }else{
+           return rD+1;
+       }
+   }
+}

@@ -1,0 +1,84 @@
+Time Complexity: O(n^2)
+Auxiliary Space: O(n)
+
+
+
+Following is the solution based on DP solution of LIS problem.
+
+1) Generate all 3 rotations of all boxes. The size of rotation array becomes 3 times the size of original array. For simplicity, we consider depth as always smaller than or equal to width.
+
+2) Sort the above generated 3n boxes in decreasing order of base area.
+
+3) After sorting the boxes, the problem is same as LIS with following optimal substructure property.
+MSH(i) = Maximum possible Stack Height with box i at top of stack
+MSH(i) = { Max ( MSH(j) ) + height(i) } where j < i and width(j) > width(i) and depth(j) > depth(i).
+If there is no such j then MSH(i) = height(i)
+
+4) To get overall maximum height, we return max(MSH(i)) where 0 < i < n
+
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int maxHeight(int height[],int width[],int length[],int n);
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--){
+	int n;
+	cin>>n;
+	
+ 	int A[1000],B[1000],C[10001];
+	for(int i=0;i<n;i++)
+	{
+		int a,b,c;
+		cin>>a>>b>>c;
+		A[i]=a;
+		B[i]=b;
+		C[i]=c;
+	}
+	cout<<maxHeight(A,B,C,n)<<endl;
+}
+ 
+} 
+}
+/*This is a function problem.You only need to complete the function given below*/
+/*The function takes an array of heights, width and 
+length as its 3 arguments where each index i value 
+determines the height, width, length of the ith box. 
+Here n is the total no of boxes.*/
+int maxHeight(int height[],int width[],int length[],int n)
+{
+    //Your code here
+    int maxL=0;
+    for(int i=0;i<n;i++){
+        maxL=max(maxL,length[i]);
+        maxL=max(maxL,width[i]);
+        maxL=max(maxL,height[i]);
+    }
+    maxL++;
+    int tmp[maxL+1][maxL+1];
+    for(int j=0;j<=maxL;j++){
+        for(int k=0;k<=maxL;k++){
+            int h=0;
+            for(int i=0;i<n;i++){
+                if(length[i]<j&&width[i]<k)
+                    h=max(h,(height[i]+tmp[length[i]][width[i]]));
+                if(length[i]<k&&width[i]<j)
+                    h=max(h,(height[i]+tmp[width[i]][length[i]]));
+                if(length[i]<k&&height[i]<j)
+                    h=max(h,(width[i]+tmp[height[i]][length[i]]));
+                if(length[i]<j&&height[i]<k)
+                    h=max(h,(width[i]+tmp[length[i]][height[i]]));
+                if(width[i]<j&&height[i]<k)
+                    h=max(h,(length[i]+tmp[width[i]][height[i]]));
+                if(width[i]<k&&height[i]<j)
+                    h=max(h,(length[i]+tmp[height[i]][width[i]]));
+            }
+            tmp[j][k]=h;
+        }
+    }
+    return tmp[maxL][maxL];
+}

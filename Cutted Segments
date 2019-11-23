@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+int dp[4006];
+int maxcut(int x,int y,int z,int n)
+{
+    if(n==0)
+    return 0;
+    if(n<0)
+    return INT_MIN;
+    if(dp[n]!=-1)
+    return dp[n];
+    dp[n]=max(maxcut(x,y,z,n-x)+1,max(maxcut(x,y,z,n-y)+1,maxcut(x,y,z,n-z)+1));
+    return dp[n];
+}
+int main()
+ {
+     int t;
+     cin>>t;
+     while(t--)
+     {
+         int n,x,y,z;
+         cin>>n;
+         cin>>x>>y>>z;
+         for(int i=0;i<4005;i++)
+         dp[i]=-1;
+         dp[0]=0;
+         int p=maxcut(x,y,z,n);
+         cout<<p<<"\n";
+     }
+	//code
+	return 0;
+}

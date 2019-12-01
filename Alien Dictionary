@@ -1,0 +1,36 @@
+void dfs(int pos,vector<vector<int> > &v,vector<int> &vis,stack<int> &st){
+    if(pos>=vis.size() || vis[pos]) return;
+    vis[pos] = 1;
+    for(int i=0;i<v[pos].size();i++){
+        if(!vis[v[pos][i]]){
+            dfs(v[pos][i],v,vis,st);
+        }
+    }
+    st.push(pos);
+}
+string printOrder(string dict[], int N, int k)
+{
+   vector<vector<int> > v(200);
+   for(int i=0;i<N-1;i++){
+       int k=0,j=0;
+       while(j<dict[i].size() && k<dict[i+1].size() && dict[i][j] == dict[i+1][k]){
+           k++;j++;
+       }
+       if(j<dict[i].size() && k<dict[i+1].size()){
+           v[dict[i][j]].push_back(dict[i+1][k]);
+       }
+   }
+   vector<int> vis(200);
+   stack<int> st;
+   for(int i=0;i<200;i++){
+       if(v[i].size() && !vis[i]){
+           dfs(i,v,vis,st);
+       }
+   }
+   string s = "";
+   while(!st.empty()){
+       s.push_back(st.top());
+       st.pop();
+   }
+   return s;
+}

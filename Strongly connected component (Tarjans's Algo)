@@ -1,0 +1,80 @@
+Tarjan Algorithm is based on following facts:
+1. DFS search produces a DFS tree/forest
+2. Strongly Connected Components form subtrees of the DFS tree.
+3. If we can find the head of such subtrees, we can print/store all the nodes in that subtree (including head) and that will be one SCC.
+4. There is no back edge from one SCC to another (There can be cross edges, but cross edges will not be used while processing the graph).
+
+
+To find head of a SCC, we calculate disc and low array (as done for articulation point, bridge, biconnected component). As discussed in the previous posts, low[u] indicates earliest visited vertex (the vertex with minimum discovery time) that can be reached from subtree rooted with u. A node u is head if disc[u] = low[u].
+
+Disc: This is the time when a node is visited 1st time while DFS traversal. For nodes A, B, C, .., J in DFS tree, Disc values are 1, 2, 3, .., 10.
+Low: In DFS tree, Tree edges take us forward, from ancestor node to one of its descendants.
+
+Low” value of a node tells the topmost reachable ancestor (with minimum possible Disc value) via the subtree of that node. So for any node, Low value equal to its Disc value anyway (A node is ancestor of itself). Then we look into its subtree and see if there is any node which can take us to any of its ancestor. If there are multiple back edges in subtree which take us to different ancestors, then we take the one with minimum Disc value (i.e. the topmost one). I
+
+Case1 (Tree Edge): If node v is not visited already, then after DFS of v is complete, then minimum of low[u] and low[v] will be updated to low[u].
+low[u] = min(low[u], low[v]);
+Case 2 (Back Edge): When child v is already visited, then minimum of low[u] and Disc[v] will be updated to low[u].
+low[u] = min(low[u], disc[v]);
+
+Same Low and Disc values help to solve other graph problems like articulation point, bridge and biconnected component.
+To track the subtree rooted at head, we can use a stack (keep pushing node while visiting). When a head node found, pop all nodes from stack till you get head out of stack.
+To make sure, we don’t consider cross edges, when we reach a node which is already visited, we should process the visited node only if it is present in stack, else ignore the node.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+static int t=0;
+void scc(vector<vector<int>>& graph,int v,stack<int>& s,vector<bool>& st,vector<int>& low,vector<int>& disc){
+    low[v]=disc[v]=++t;
+    st[v]=true;  s.push(v);
+    for(auto itr=graph[v].begin();itr!=graph[v].end();++itr){
+        if(disc[*itr]==-1){
+            scc(graph,*itr,s,st,low,disc);
+            low[v]=min(low[v],low[*itr]);
+        }
+        else if(st[*itr])
+            low[v]=min(low[v],disc[*itr]);
+    }
+    
+    if(low[v]==disc[v]){
+        while(s.top()!=v){
+            cout << s.top() << " ";
+            st[s.top()]=false;
+            s.pop();
+        }
+        st[v]=false;
+        cout << v << ",";
+        s.pop();
+    }
+}
+int main()
+ {
+	//code
+	int t;
+	cin>>t;
+	
+	while(t--){
+	    int V,E;
+	    cin>>V>>E;
+	    int a, b;
+	    vector<vector<int>> graph(V);
+	    for(int i=0; i<E; i++){
+	        cin>>a>>b;
+	        graph[a].push_back(b);
+	    }
+	    
+	    stack<int>s;
+	    vector<bool> vis(V, false);
+	    vector<int> low(V, 0);
+	    vector<int> dist(V, -1);
+	    
+	    for(int i=0; i<V; i++){
+	        if(dist[i]==-1){
+	            scc(graph, i, s, vis, low, dist);
+	        }
+	    }
+	    cout<<endl;
+	}
+	return 0;
+}

@@ -1,0 +1,50 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+ {
+	//code
+	int t;
+	cin>>t;
+	
+	while(t--){
+	    int n;
+	    cin>>n;
+	    
+	    int arr[n][n], dist[n][n];
+	    for(int i=0; i<n; i++){
+	        for(int j=0; j<n; j++)
+	        {
+	            cin>>arr[i][j];
+	            dist[i][j]=INT_MAX;
+	        }
+	    }
+	    dist[0][0]=arr[0][0];
+	    queue<pair<int, int>> q;
+	    q.push(make_pair(0,0));
+	    int res = INT_MAX;
+	    while(!q.empty()){
+	        pair<int, int> temp = q.front();
+	        q.pop();
+	        int a = temp.first; int b = temp.second;
+	        if(a==n-1 && b==n-1)    res = min(res, dist[a][b]);
+	        int dx[4] = {-1,0,1,0};
+	        int dy[4] = {0,-1,0,1};
+	        
+	        for(int i=0; i<4; i++){
+	            int u = a+dx[i], v = b+dy[i];
+	            if(u>=0 && u<n && v>=0 && v<n){
+	                if(dist[u][v] > dist[a][b]+arr[u][v]){
+	                    dist[u][v] = dist[a][b]+arr[u][v];
+	                    q.push(make_pair(u,v));
+	                }
+	            }
+	        }
+	    }
+	    if(res == INT_MAX){
+	        cout<<"-1"<<endl;
+	    }else{
+	        cout<<res<<endl;
+	    }
+	}
+	return 0;
+}

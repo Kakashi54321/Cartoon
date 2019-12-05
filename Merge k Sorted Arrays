@@ -1,0 +1,78 @@
+int size;
+typedef struct node
+{
+    int data;
+    int i,j;
+}Node;
+void heapify(Node heap[],int index)
+{
+    int left=2*index+1;
+    int right=2*index+2;
+    int min=index;
+    if(left<size)
+    {
+        if(heap[left].data<heap[min].data)
+        {
+            min=left;
+        }
+    }
+    if(right<size){
+        if(heap[right].data<heap[min].data)
+            min=right;
+    }
+    if(min!=index)
+    {
+        Node temp=heap[min];
+        heap[min]=heap[index];
+        heap[index]=temp;
+        heapify(heap,min);
+    }
+}
+int extract(Node heap[],int arr[][N],int k)
+{
+    if(size<=0)
+        return INT_MAX;
+    int rvalue=heap[0].data;
+    if(heap[0].j!=k)
+    {
+        heap[0].data=arr[heap[0].i][heap[0].j];
+        heap[0].j++;
+    }
+    else
+    {
+        Node temp=heap[0];
+        heap[0]=heap[size-1];
+        heap[size-1]=temp;
+        size--;
+    }
+    heapify(heap,0);
+    return rvalue;
+}
+int *mergeKArrays(int arr[][N], int k)
+{
+//code here
+//cout<<"rohit";
+    Node heap[k+1];
+    size=k;
+    for(int i=0;i<k;i++)
+    {
+        heap[i].data=arr[i][0];
+        heap[i].i=i;
+        heap[i].j=1;
+   }
+   //cout<<"rohit";
+  /*  for(int i=0;i<k;i++)
+        cout<<heap[i].data<<" ";
+    cout<<endl;*/
+    for(int i=k/2;i>=0;i--)
+    heapify(heap,i);
+   /* for(int i=0;i<k;i++)
+        cout<<heap[i].data<<" ";
+    cout<<endl;*/
+    int *result = new int[N*N];
+    int ind=0;
+    while(size>0){
+        result[ind++]=extract(heap,arr,k);
+    }
+    return result;
+}

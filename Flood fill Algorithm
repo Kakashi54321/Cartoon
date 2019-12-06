@@ -1,0 +1,87 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void colornum(vector<vector<int>>&mat, int n, int m, int x, int y, int k){
+    //     if(x==0 && y>0){
+    //         if(mat[x][y+1]==mat[x][y]){
+    //             mat[x][y]=k;
+    //             colornum(mat,n,m,x,y+1,k);
+    //         }
+    //         else if(mat[x+1][y]==mat[x][y]){
+    //             mat[x][y]=k;
+    //             colornum(mat,n,m,x+1,y,k);
+    //         }
+    //         else if(mat[x][y-1]==mat[x][y]){
+    //         mat[x][y]=k;
+    //             colornum(mat,n,m,x,y-1,k);
+    //         }
+    //     }
+    //     if(x>0 && y==0){
+    //         if(mat[x][y+1]==mat[x][y]){
+    //         mat[x][y]=k;
+    //         colornum(mat,n,m,x,y+1,k);
+    //         }
+    //         else if(mat[x+1][y]==mat[x][y]){
+    //             mat[x][y]=k;
+    //             colornum(mat,n,m,x+1,y,k);
+    //         }
+    //         if(mat[x-1][y]==mat[x][y]){
+    //         mat[x][y]=k;
+    //         colornum(mat,n,m,x-1,y,k);
+    //         }
+    //     }
+    //     if(x==0 && y==0){
+    //         if(mat[x][y+1]==mat[x][y]){
+    //         mat[x][y]=k;
+    //         colornum(mat,n,m,x,y+1,k);
+    //         }
+    //         else if(mat[x+1][y]==mat[x][y]){
+    //         mat[x][y]=k;
+    //         colornum(mat,n,m,x+1,y,k);
+    //         }
+    // }
+    int temp = mat[x][y];
+    mat[x][y] = k;
+    
+    
+        if(x-1 >= 0 && mat[x-1][y]==temp){ 
+          
+            colornum(mat,n,m,x-1,y,k);
+        }
+        if(y - 1 >= 0 && mat[x][y-1]==temp){
+           
+            colornum(mat,n,m,x,y-1,k);
+        }
+        if(y + 1 < m && mat[x][y+1]==temp){
+       
+            colornum(mat,n,m,x,y+1,k);
+        }
+        if(x + 1 < n && mat[x+1][y]==temp){
+       
+            colornum(mat,n,m,x+1,y,k);
+        }
+
+    return;
+}
+int main() {
+	//code
+	int t; cin>>t;
+	while(t--){
+	    int n,m; cin>>n>>m; vector<vector<int>>mat(n, vector <int>(m));
+	    for(int i=0; i<n; i++){
+	        for(int j=0; j<m; j++){
+	            cin>>mat[i][j];
+	        }
+	    }
+	    int x,y,k; cin>>x>>y>>k;
+	    colornum(mat,n,m,x,y,k);
+	    
+	    for(int i=0; i<n; i++){
+	        for(int j=0; j<m; j++){
+	            cout<<mat[i][j]<<" ";
+	        }
+	    }
+	cout<<endl;
+	}
+	return 0;
+}

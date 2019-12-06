@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+int find(int p, int q){
+    if(p>=1 && q>=1){
+        if(p==2 && q==2)    return 2;
+        if(q==1)    return 1;
+        if(p==1)    return 1;
+        else{
+            return find(p-1, q) + find(p, q-1);
+        }
+    }
+}
+int main()
+ {
+	//code
+	int t;
+	cin>>t;
+	
+	while(t--){
+	    int m,n;
+	    cin>>m>>n;
+	    
+	    int dp[m*n];
+	    int res = find(m,n);
+	    cout<<res<<endl;
+	}
+	return 0;
+}

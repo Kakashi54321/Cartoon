@@ -1,0 +1,21 @@
+int maxLen(int A[],int n)
+{
+  //Your code here
+  long long int sum=0;
+  int max = INT_MIN;
+  map<int, vector<int>> m;
+  m[0].push_back(-1);
+  
+  for(int i=0; i<n; i++){
+      sum += A[i];
+      m[sum].push_back(i);
+  }
+  
+  for(auto it = m.begin(); it!=m.end(); it++){
+      int l = it->second.size();
+      if(max < it->second[l-1]-it->second[0]){
+          max = it->second[l-1]-it->second[0];
+      }
+  }
+  return max;
+}

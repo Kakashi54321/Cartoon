@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool sortbysec(const pair<int,int> &a, const pair<int,int> &b)
+{
+    if(a.second == b.second)
+        return(a.first < b.first);
+    return (a.second > b.second);
+}
+
+void printVect(vector< pair<int,int> > v)
+{
+    vector< pair<int,int> > :: iterator it;
+    for(it=v.begin(); it!=v.end(); it++)
+    {
+        while(it->second--)
+        {
+            cout<<it->first<<" ";
+        }
+    }
+}
+int main()
+ {
+	//code
+	int t;
+	cin>>t;
+	
+	while(t--){
+	     int n;
+        cin>>n;
+        int a[n],i;
+        map<int,int> m;
+        for(i=0;i<n;i++)
+        {
+            cin>>a[i];
+            if(m.find(a[i]) == m.end())
+                m[a[i]] = 1;
+            else
+                ++m[a[i]];
+        }
+	    vector< pair<int, int> > v (m.begin(), m.end());
+        sort(v.begin(), v.end(), sortbysec);
+         printVect(v);
+        cout<<endl;
+	}
+	return 0;
+}

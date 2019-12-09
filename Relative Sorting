@@ -1,0 +1,47 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+ {
+	//code
+	int t;
+	cin>>t;
+	
+	while(t--){
+	    int m,n;
+	    cin>>m>>n;
+	    
+	    vector<int> p(m);
+	    vector<int> q(n);
+	    
+	    for(int i=0; i<m; i++){
+	        cin>>p[i];
+	    }
+	    for(int i=0; i<n; i++){
+	        cin>>q[i];
+	    }
+	    
+	    map<int, int>mp;
+	    for(int i=0; i<m; i++){
+	        mp[p[i]]++;
+	    }
+	    
+	    for(int i=0; i<n; i++){
+	        if(mp.find(q[i]) != mp.end()){
+	            while(mp[q[i]] >0){
+	                cout<<q[i]<<" ";
+	                mp[q[i]]--;
+	            }
+	            mp.erase(q[i]);
+	        }
+	    }
+	    
+	    for(auto it=mp.begin(); it!=mp.end(); it++){
+	        while(it->second > 0){
+	            cout<<it->first<<" ";
+	            it->second--;
+	        }
+	    }
+	    cout<<endl;
+	}
+	return 0;
+}

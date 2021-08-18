@@ -1,0 +1,11 @@
+Given a string, remove spaces from it. 
+
+string modify (string s)
+    {
+        //code here.
+        int l = s.length();
+        int space = count(s.begin(), s.end(), ' ');
+        remove(s.begin(), s.end(), ' ');
+        s.resize(l-space);
+        return s;
+    }
